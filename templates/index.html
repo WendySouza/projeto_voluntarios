@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Voluntários</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Voluntários</h1>
+        <a href="{{ url_for('adicionar') }}">Adicionar Voluntário</a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Atividade</th>
+                <th>Ações</th>
+            </tr>
+            {% for voluntario in voluntarios %}
+            <tr>
+                <td>{{ voluntario[1] }}</td>
+                <td>{{ voluntario[2] }}</td>
+                <td>{{ voluntario[3] }}</td>
+                <td>{{ voluntario[4] }}</td>
+                <td class="action-buttons">
+                    <a href="{{ url_for('editar', id=voluntario[0]) }}">Editar</a>
+                    <a href="{{ url_for('deletar', id=voluntario[0]) }}">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

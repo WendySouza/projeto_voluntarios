@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Voluntário</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Editar Voluntário</h1>
+    <form action="{{ url_for('editar', id=voluntario[0]) }}" method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{ voluntario[1] }}" required><br>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ voluntario[2] }}" required><br>
+        <label>Telefone:</label>
+        <input type="text" name="telefone" value="{{ voluntario[3] }}" required><br>
+        <label>Atividade:</label>
+        <input type="text" name="atividade" value="{{ voluntario[4] }}" required><br>
+        <input type="submit" value="Salvar">
+    </form>
+    <a href="{{ url_for('index') }}" class="return-link">Voltar</a>
+</body>
+</html>
